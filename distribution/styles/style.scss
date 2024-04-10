@@ -1,0 +1,114 @@
+@import 'reset.min';
+
+$browser-context: 16; // Default
+
+@function rem($pixels, $context: $browser-context) {
+	@return calc($pixels / $context) * 1rem;
+}
+
+@function em($pixels, $context: $browser-context) {
+	@return calc($pixels / $context) * 1em;
+}
+
+body {
+	font-size: rem(18);
+	font-family: 'Poppins Regular', sans-serif;
+}
+
+.container {
+	max-width: 1500px;
+	margin: 0 auto;
+}
+
+.title {
+	font-size: rem(36);
+	font-weight: 700;
+}
+
+.header__box {
+	display: flex;
+	align-items: center;
+	padding-top: em(20);
+	gap: 0 em(10);
+}
+
+.button {
+	padding: em(3);
+	background-color: gray;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	color: #fff;
+	box-shadow: 0 0 3px 1px #000;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.note__container {
+	margin-top: em(20);
+	display: flex;
+	flex-wrap: wrap;
+	gap: em(20);
+}
+
+.note {
+	background-color: rgb(255, 255, 183);
+	padding: em(20);
+	min-width: 300px;
+	min-height: 300px;
+	box-shadow: 2px 2px 5px 1px #7e7e7e;
+	border-radius: 30px;
+}
+
+.heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: em(5);
+	border-bottom: 1px solid #000;
+}
+
+.icons__box {
+	display: flex;
+	gap: 0 em(5);
+
+	div {
+		cursor: pointer;
+	}
+}
+
+.note__title {
+	font-size: rem(26);
+}
+
+.note__desc {
+	margin-top: em(10);
+}
+
+.hidden {
+	display: none;
+}
+
+p,
+h2 {
+	max-width: 250px;
+	word-wrap: break-word;
+}
+
+textarea {
+	margin-top: em(5);
+	max-height: 210px;
+	max-width: 310px;
+	height: 100%;
+	width: 100%;
+	resize: none;
+}
+
+.f-direction {
+	flex-direction: row-reverse;
+	gap: 0 em(5);
+}
+
+input[type='text'] {
+	width: 250px;
+}
