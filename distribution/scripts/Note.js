@@ -1,5 +1,6 @@
 class Note {
-	constructor(title = 'Title', desc = 'Description') {
+	constructor(notebook, title = 'Title', desc = 'Description') {
+		this.notebook = notebook;
 		this.title = title;
 		this.desc = desc;
 		this.editButton = this.createButton('./distribution/img/edit.svg');
@@ -12,6 +13,12 @@ class Note {
 		const isEditing = this.titleElement.classList.contains('hidden');
 
 		if (!isEditing) {
+			this.inputTitleValue = this.inputTitle
+				? this.inputTitle.value
+				: this.titleElement.textContent;
+			this.inputDescValue = this.inputDesc
+				? this.inputDesc.value
+				: this.descElement.textContent;
 			this.heading.classList.add('f-direction');
 			this.titleElement.classList.toggle('hidden');
 			this.descElement.classList.toggle('hidden');
@@ -63,7 +70,7 @@ class Note {
 	}
 
 	remove() {
-		this.element.parentElement.removeChild(this.element);
+		this.notebook.removeNote(this);
 	}
 
 	render(container) {
